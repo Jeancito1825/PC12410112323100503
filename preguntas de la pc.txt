@@ -1,0 +1,30 @@
+Pregunta 7: Buenas prácticas y reflexión
+
+a. ¿Qué dificultades tuviste durante el scaffolding y cómo las solucionaste?
+
+Una de las principales dificultades fue la configuración de la conexión entre ASP.NET Core y SQL Server. Inicialmente se presentaron errores relacionados con la cadena de conexión y el proveedor de base de datos, ya que el proyecto estaba configurado para PostgreSQL. Para solucionarlo, se modificó el `appsettings.json` y el `Program.cs` para trabajar con SQL Server usando `UseSqlServer()`.
+
+
+b. ¿Qué diferencias notaste entre usar un controlador autogenerado y uno con repository? ¿Qué enfoque prefieres?
+
+El controlador autogenerado es más rápido y sencillo de implementar, ya que trabaja directamente con el `DbContext`. Es útil para operaciones CRUD simples y proyectos pequeños.
+
+Por otro lado, el enfoque con Repository permite separar mejor la lógica de acceso a datos, haciendo el proyecto más ordenado, mantenible y escalable. Además, facilita reutilizar código y aplicar buenas prácticas de arquitectura.
+
+
+c. ¿Qué buenas prácticas implementaste (en código real) y por qué?
+
+Se implementaron varias buenas prácticas durante el desarrollo:
+
+* Uso de arquitectura por capas separando API, Core e Infrastructure.
+* Uso de inyección de dependencias para mejorar la mantenibilidad.
+* Uso de DTOs para evitar exponer directamente las entidades.
+* Separación entre controladores simples y controladores con Repository según lo solicitado.
+
+d. ¿Usaste herramientas de IA en esta práctica? ¿Qué herramientas usaste y en qué parte del proyecto?
+
+Sí, se utilizaron herramientas de inteligencia artificial como apoyo durante el desarrollo de la práctica.
+
+Se utilizó ChatGPT para resolver dudas relacionadas con ASP.NET Core, Entity Framework Core, configuración de SQL Server y estructura del patrón Repository
+
+Las herramientas de IA fueron utilizadas únicamente como apoyo y guía durante el desarrollo del proyecto.
