@@ -51,9 +51,8 @@ namespace PC12410112323100503.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, TipoServicio tipoServicio)
         {
-            if (id != tipoServicio.Id)
-                return BadRequest();
-
+            // Use the id from the URL to locate the entity and update allowed fields.
+            // Ignore the Id coming in the body (clients may omit it or send 0).
             var exist = await _context.TipoServicios.FindAsync(id);
             if (exist == null)
                 return NotFound();

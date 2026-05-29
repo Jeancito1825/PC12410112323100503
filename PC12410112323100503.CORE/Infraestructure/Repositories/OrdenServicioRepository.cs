@@ -45,5 +45,15 @@ namespace PC12410112323100503.CORE.Infraestructure.Repositories
             _context.OrdenServicios.Update(ordenServicio);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<bool> ExistsVehiculoAsync(int vehiculoId)
+        {
+            return await _context.Vehiculos.AnyAsync(v => v.Id == vehiculoId);
+        }
+
+        public async Task<bool> ExistsTipoServicioAsync(int tipoServicioId)
+        {
+            return await _context.TipoServicios.AnyAsync(t => t.Id == tipoServicioId);
+        }
     }
 }

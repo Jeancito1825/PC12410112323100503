@@ -20,6 +20,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    // Show detailed exceptions in Development to help diagnose crashes
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();

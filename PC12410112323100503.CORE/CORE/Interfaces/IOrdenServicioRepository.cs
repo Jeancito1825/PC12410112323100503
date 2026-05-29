@@ -11,5 +11,7 @@ namespace PC12410112323100503.Core.Interfaces
         Task<OrdenServicio> CreateAsync(OrdenServicio ordenServicio);
         Task UpdateAsync(OrdenServicio ordenServicio);
         Task DeleteAsync(int id);
+        Task<bool> ExistsVehiculoAsync(int vehiculoId);
+        Task<bool> ExistsTipoServicioAsync(int tipoServicioId);
     }
 }

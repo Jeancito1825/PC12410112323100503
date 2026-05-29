@@ -18,6 +18,12 @@ namespace PC12410112323100503.CORE.Infraestructure.Services
 
         public async Task<OrdenServicioDto> CreateAsync(OrdenServicioDto dto)
         {
+            // Validate related entities exist
+            if (!await _repository.ExistsVehiculoAsync(dto.VehiculoId))
+                throw new System.ArgumentException($"Vehiculo with id {dto.VehiculoId} does not exist");
+            if (!await _repository.ExistsTipoServicioAsync(dto.TipoServicioId))
+                throw new System.ArgumentException($"TipoServicio with id {dto.TipoServicioId} does not exist");
+
             var entity = new OrdenServicio
             {
                 FechaIngreso = dto.FechaIngreso,
@@ -73,6 +79,11 @@ namespace PC12410112323100503.CORE.Infraestructure.Services
         {
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null) return;
+            // Validate related entities exist
+            if (!await _repository.ExistsVehiculoAsync(dto.VehiculoId))
+                throw new System.ArgumentException($"Vehiculo with id {dto.VehiculoId} does not exist");
+            if (!await _repository.ExistsTipoServicioAsync(dto.TipoServicioId))
+                throw new System.ArgumentException($"TipoServicio with id {dto.TipoServicioId} does not exist");
 
             existing.FechaIngreso = dto.FechaIngreso;
             existing.DescripcionProblema = dto.DescripcionProblema;
